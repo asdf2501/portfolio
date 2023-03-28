@@ -48,9 +48,23 @@
     <div class="works fade-in-on-scroll-works">
       <h2>Works</h2>
       <h3>Illustrator</h3>
-      <div class="illustrator-container">
-          <div class="illustrator-item"></div>
+      <div class="categories">
+      
+        <div class="card">
+          <img src="./assets/logo.png" alt="Illustrator logo">
+          <p class="text">架空の企業のロゴ</p>
+        </div>
+        <div class="card">
+          <img src="./assets/map.png" alt="Illustrator map">
+          <p class="text">架空の地図</p>
+        </div>
+        <div class="card">
+          <img src="./assets/apple.png" alt="Illustrator apple">
+          <p class="text">架空のイベントのフライヤー</p>
+        </div>
+     
       </div>
+
     </div>
     <div class="contact fade-in-on-scroll-contact">
       <h2>Contact</h2>
@@ -132,6 +146,33 @@ h3 {
 .contact {
   margin: 20%;
 }
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,.4);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card text {
+  align-items: flex-end
+}
+
+
 .fade-in-title {
   opacity: 1;
   animation-name: fadeIn;

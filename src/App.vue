@@ -32,9 +32,9 @@
     <br>
     <br>
     <br>
-    <div class="about fade-in-on-scroll">
+    <div class="about fade-in-on-scroll-about">
     <h2>About</h2>
-      <p>1988年、神奈川県横浜市生まれ。<br>
+      <p class="text">1988年、神奈川県横浜市生まれ。<br>
           桐蔭学園高等学校理数科卒。千葉大学工学部情報画像学科卒。<br>
           大学では、コンピュータサイエンスの基礎やプログラミングの実習などを学ぶ。<br>
           また、学生時代には家庭教師のアルバイトをし、高校生の数学を中心に教える。人に教えることの楽しさや、試験で結果を出してくれたことの嬉しさなどを体験する。<br>
@@ -45,110 +45,17 @@
           さらにPHP＋Laravel、Vue.js3を書籍で独習し、Laravel・Vueを用いたWebアプリをそれぞれAWS EC2・github pagesにデプロイした。
       </p>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="works fade-in-on-scroll-works">
+      <h2>Works</h2>
+      <h3>Illustrator</h3>
+      <div class="illustrator-container">
+          <div class="illustrator-item"></div>
+      </div>
+    </div>
+    <div class="contact fade-in-on-scroll-contact">
+      <h2>Contact</h2>
+      <p class="text mail">asdf_2501[at]hotmail.com</p>
+    </div>
     <br>
     <br>
     <br>
@@ -161,6 +68,7 @@
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 body {
   margin: 0;
@@ -200,14 +108,30 @@ header {
   font-family: 'Inter', sans-serif;
 }
 
+.text {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.mail {
+  text-align: center;
+}
+
 h2 {
+  font-family: 'Inter', sans-serif;
+}
+h3 {
   font-family: 'Inter', sans-serif;
 }
 
 .about {
   margin: 20%;
 }
-
+.works {
+  margin: 20%;
+}
+.contact {
+  margin: 20%;
+}
 .fade-in-title {
   opacity: 1;
   animation-name: fadeIn;
@@ -216,9 +140,16 @@ h2 {
   animation-fill-mode: forwards;
 }
 
-.fade-in-on-scroll {
+.fade-in-on-scroll-about {
   opacity: 0;
+}
 
+.fade-in-on-scroll-works {
+  opacity: 0;
+}
+
+.fade-in-on-scroll-contact {
+  opacity: 0;
 }
 
 .fade-in-on-scroll-active {
@@ -250,19 +181,27 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    handleScroll() {
-      const el = this.$el.querySelector(".fade-in-on-scroll");
-      if (!el) {
-        return;
-      }
-      const elTop = el.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      const yOffset = 100;
-      if (elTop - windowHeight + yOffset <= 0) {
-        el.classList.add("fade-in-on-scroll-active");
-        window.removeEventListener("scroll", this.handleScroll);
-      }
+  handleScroll() {
+    const elAbout = this.$el.querySelector(".fade-in-on-scroll-about");
+    const elWorks = this.$el.querySelector(".fade-in-on-scroll-works");
+    const elContact = this.$el.querySelector(".fade-in-on-scroll-contact");
+
+    if (elAbout && elAbout.getBoundingClientRect().top - window.innerHeight + 100 <= 0) {
+      elAbout.classList.add("fade-in-on-scroll-active");
     }
+
+    if (elWorks && elWorks.getBoundingClientRect().top - window.innerHeight + 100 <= 0) {
+      elWorks.classList.add("fade-in-on-scroll-active");
+    }
+
+    if (elContact && elContact.getBoundingClientRect().top - window.innerHeight + 100 <= 0) {
+      elContact.classList.add("fade-in-on-scroll-active");
+    }
+
+    // if (elAbout && elWorks && elContact) {
+    //   window.removeEventListener("scroll", this.handleScroll);
+    // }
   }
+}
 };
 </script>

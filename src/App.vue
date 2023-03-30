@@ -3,9 +3,9 @@
   <div class="full-page">
     <header>
       <ul class="nav-list">
-        <li class="nav-list-item">About</li>
-        <li class="nav-list-item">Works</li>
-        <li class="nav-list-item">Contact</li>
+        <li class="nav-list-item"><a href="#about">About</a></li>
+        <li class="nav-list-item"><a href="#works">Works</a></li>
+        <li class="nav-list-item"><a href="#contact">Contact</a></li>
       </ul>
     </header>
     <br>
@@ -33,7 +33,7 @@
     <br>
     <br>
     <div class="about fade-in-on-scroll-about">
-    <h2>About</h2>
+    <h2 id="about">About</h2>
       <p class="text">1988年、神奈川県横浜市生まれ。<br>
           桐蔭学園高等学校理数科卒。千葉大学工学部情報画像学科卒。<br>
           大学では、コンピュータサイエンスの基礎やプログラミングの実習などを学ぶ。<br>
@@ -46,7 +46,7 @@
       </p>
     </div>
     <div class="works fade-in-on-scroll-works">
-      <h2>Works</h2>
+      <h2 id="works">Works</h2>
       <h3>Illustrator</h3>
       <div class="categories">
       
@@ -62,12 +62,29 @@
           <img src="./assets/apple.png" alt="Illustrator apple">
           <p class="text">架空のイベントのフライヤー</p>
         </div>
-     
+        <div class="card">
+          <img src="./assets/okinawa.png" alt="Illustrator okinawa">
+          <p class="text">架空の旅行会社のフライヤー</p>
+        </div>
+      </div>
+      <h3>Web</h3>
+      <div class="categories">
+        <div class="card">
+          <a href="https://asdf2501.github.io/attack-speed/" target="_blank">
+          <img src="./assets/azurlane.png" alt="Web azurlane">
+          <p class="text">ゲームの攻撃速度計算機<br>(Vue.js3,github pages)</p></a>
+        </div>
+        <div class="card">
+          <a href="http://ec2-3-112-2-43.ap-northeast-1.compute.amazonaws.com/tweet" target="_blank">
+          <img src="./assets/tweet.png" alt="Web tweet">
+          <p class="text">つぶやきアプリ<br>(Laravel ,AWS EC2)</p></a>
+        </div>
+      
       </div>
 
     </div>
     <div class="contact fade-in-on-scroll-contact">
-      <h2>Contact</h2>
+      <h2 id="contact">Contact</h2>
       <p class="text mail">asdf_2501[at]hotmail.com</p>
     </div>
     <br>
@@ -113,6 +130,11 @@ header {
   margin: 0 20px;
 }
 
+a,a:hover,a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
 
 .title {
   margin: 40vh auto 0;
@@ -150,7 +172,7 @@ h3 {
 .categories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .card {

@@ -190,6 +190,18 @@ h3 {
   margin-bottom: 10px;
 }
 
+@media (max-width: 1023px) {
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    flex-basis: calc(100% - 10px);
+  }
+}
+
 .card text {
   align-items: flex-end
 }

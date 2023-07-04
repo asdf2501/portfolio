@@ -101,6 +101,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
